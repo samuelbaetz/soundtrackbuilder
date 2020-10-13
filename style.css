@@ -53,3 +53,8 @@
     color: lightyellow;
     font-size:large;
 }
+
+footer{
+    padding: 10px !important;
+    background-color: yellow !important;
+}
