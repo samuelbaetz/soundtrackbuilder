@@ -26,15 +26,29 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
             
       var results = data.tracks.items[i].name;
       var artist = data.tracks.items[i].artists[i].name;
+      var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+    
+      }).then(function(response) {
+          console.log('response:', response)
+          var artistName = $('<h1>').text("Artist: " + response.result.artist.name);
+          console.log('artistName:', artistName)
+          var trackName = $('<h3>').text("Track: " + response.result.track.name);
+          var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
+          
+          $('#lyricsDisplay').append(artistName, trackName, trackLyrics);
+      });
       console.log(artist)
       console.log(results)
       $('#results').val(results + " " + artist)
         }
-    },
-    function (err) {
-      console.error(err);
-    }
-  );
+      },
+      function (err) {
+        console.error(err);
+      }
+      );
 
   });
   
