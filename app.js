@@ -82,7 +82,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
       });
       console.log(artist)
       console.log(results)
-      $('#results').val(results + " " + artist)
+      $('#soundtrack').val(results + " " + artist)
         }
       },
       function (err) {
