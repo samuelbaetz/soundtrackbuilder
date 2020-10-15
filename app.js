@@ -52,9 +52,12 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
   });
   
  
+  function clearLyrics() {
+    $('#lyricsDisplay').empty();
+  }
 
   $(document).on("click", "#search", function(){
-
+    clearLyrics();
     
     
   spotifyApi.searchTracks($('#search1').val()).then(
