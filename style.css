@@ -1,3 +1,9 @@
+.site{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
 .soundtrackify-brand{
     background-color: red;
 }
@@ -21,6 +27,10 @@
 
 .pg-background{
     background-image: url("https://images.pexels.com/photos/4088009/pexels-photo-4088009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.site-content{
+    flex: 1;
 }
 .search-input{
     margin-left: 50px;
