@@ -60,7 +60,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
     clearLyrics();
     
     
-  spotifyApi.searchTracks($('#search1').val(),
+  spotifyApi.searchTracks($('#search1').val()).then(
       
     function (data) {
         
