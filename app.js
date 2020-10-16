@@ -68,7 +68,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
         for (var i = 0; i < 5; i++) {
             
       var results = data.tracks.items[i].name;
-      var artist = data.tracks.items.artists;
+      var artist = data.tracks.items[i].artists;
       console.log(artist)
       console.log(results)
       var p = $("<p>").text(results + " " + artist)
