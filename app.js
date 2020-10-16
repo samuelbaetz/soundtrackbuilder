@@ -86,7 +86,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
           var trackName = $('<h3>').text("Track: " + response.result.track.name);
           var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
           
-          $('#lyricsDisplay').append(artistName, trackName, trackLyrics);
+          $('#lyricsDisplay').prepend(artistName, trackName, trackLyrics);
       });
       
         }
