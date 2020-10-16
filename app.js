@@ -81,9 +81,9 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
     
       }).then(function(response) {
           console.log('response:', response)
-          var artistName = $('<h1>').text("Artist: " + response.result.artist.name);
-          console.log('artistName:', artistName)
-          var trackName = $('<h3>').text("Track: " + response.result.track.name);
+          console.log('artistName:', response.result.artist.name)
+          var trackName = $('<p>').text("Track: " + response.result.track.name);
+          console.log('trackName:', response.result.track.name)
           var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
           
           $('#lyricsDisplay').append(artistName, trackName, trackLyrics);
