@@ -50,10 +50,20 @@
     font-family: 'Viga', sans-serif;
 }
 
+.content{
+    padding-left: 10px;
+}
+
+#soundtrack{
+    margin-left: 10px !important;
+}
 .playlist-display{
     margin-left: 50px;
 }
 
+#lyricsDisplay{
+    padding-left: 10px !important;
+}
 .lyrics-display{
     margin-right:50px;
 }
@@ -67,4 +77,8 @@
 footer{
     padding: 10px !important;
     background-color: yellow !important;
+}
+
+p{
+    padding-left: 10px;
 }
