@@ -69,9 +69,9 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
       var artist = data.tracks.items[i].artists[0].name;
       console.log(artist)
       console.log(results)
-      var p = $("<p>").text(results + " " + artist)
+      var p = $('<button>').text(results + " " + artist);
       var content = $("#soundtrack");
-      content.prepend(p)
+      content.prepend(p);
       var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
       $.ajax({
           url: queryURL,
