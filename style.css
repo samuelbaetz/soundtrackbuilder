@@ -83,3 +83,15 @@ p{
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.trackButton {
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.trackButton:checked {
+    background-color: yellow;
+    color: black;
+    text-align: center;
+}

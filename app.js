@@ -69,9 +69,13 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
       var artist = data.tracks.items[i].artists[0].name;
       console.log(artist)
       console.log(results)
-      var p = $('<button>').text(results + " " + artist);
+      var p = $('<button>').text(results + " " + artist).addClass("trackButton");
       var content = $("#soundtrack");
       content.prepend(p);
+      
+    }
+
+    $('.trackButton').on("click", function(){
       var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
       $.ajax({
           url: queryURL,
@@ -86,8 +90,8 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
           
           $('#lyricsDisplay').append(trackName, trackLyrics);
       });
-      
-        }
+
+    })
       },
       function (err) {
         console.error(err);
