@@ -101,3 +101,8 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
   
 
 
+  $(document).on("click", "#search", function(){
+
+    clearLyrics();
+
+  });
