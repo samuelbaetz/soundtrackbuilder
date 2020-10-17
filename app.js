@@ -52,12 +52,13 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
   });
   
  
-  // function clearLyrics() {
-  //   $('#lyricsDisplay').empty();
-  // }
+//   function clearLyrics() {
+//     $('#lyricsDisplay').remove();
+//     $('#soundtrack').remove();
+//   }
 
   $(document).on("click", "#search", function(){
-    // clearLyrics();
+    
     
     
   spotifyApi.searchTracks($('#search1').val()).then(
@@ -100,3 +101,8 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
   
 
 
+//   $(document).on("click", "#search", function(){
+
+//     clearLyrics();
+
+//   });
