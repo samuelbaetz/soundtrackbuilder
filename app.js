@@ -69,24 +69,24 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
         var p = $('<button>').text(results + " " + artist).addClass("trackButton");
         var content = $("#soundtrack");
         content.prepend(p);
+        $('.trackButton').on("click", function(){
+          $('#lyricsDisplay').empty();
+          var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
+          $.ajax({
+              url: queryURL,
+              method: "GET"
+        
+          }).then(function(response) {
+              var trackName = $('<p>').text("Track: " + response.result.track.name);
+              var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
+    
+              $('#lyricsDisplay').append(trackName, trackLyrics);
+          });
+    
+        })
       
       }
 
-    $('.trackButton').on("click", function(){
-      $('#lyricsDisplay').empty();
-      var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
-      $.ajax({
-          url: queryURL,
-          method: "GET"
-    
-      }).then(function(response) {
-          var trackName = $('<p>').text("Track: " + response.result.track.name);
-          var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
-
-          $('#lyricsDisplay').append(trackName, trackLyrics);
-      });
-
-    })
       },
       function (err) {
         console.error(err);
