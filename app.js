@@ -106,3 +106,8 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
     clearLyrics();
 
   });
+
+
+  $( document ).ajaxError(function() {
+    $('#lyricsDisplay').text( "Oh NO! Not Found" );
+  });
