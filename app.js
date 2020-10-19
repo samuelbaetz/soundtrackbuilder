@@ -66,12 +66,12 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
       for (var i = 0; i < 5; i++) {
         var results = data.tracks.items[i].name;
         var artist = data.tracks.items[i].artists[0].name;
-        var p = $('<button>').text(results + " " + artist).addClass("trackButton"[i]);
+        var p = $('<button>').text(results + " " + artist).addClass("trackButton");
         var content = $("#soundtrack");
         content.prepend(p);
         
-      
-          $('.trackButton'[i]).on("click", function(){
+      }
+          $('.trackButton').on("click", function(){
             // console.log(this.text());
             // var trackFull=this.text();
             // var trackSplit=trackFull.split("-");
@@ -95,7 +95,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
             });
             
           })
-        }
+
       },
       function (err) {
         console.error(err);
