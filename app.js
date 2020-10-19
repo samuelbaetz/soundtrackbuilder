@@ -71,7 +71,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
         content.prepend(p);
         
       }
-          $('.trackButton'[i]).on("click", function(){
+          $('#k').on("click", function(){
             // console.log(this.text());
             // var trackFull=this.text();
             // var trackSplit=trackFull.split("-");
