@@ -66,7 +66,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
       for (var i = 0; i < 5; i++) {
         var results = data.tracks.items[i].name;
         var artist = data.tracks.items[i].artists[0].name;
-        var p = $('<button>').text(results + " " + artist).addClass("trackButton");
+        var p = $('<button>').text(results + " " + artist).attr('id', 'trackbutton'[i]);
         var content = $("#soundtrack");
         content.prepend(p);
         
