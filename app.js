@@ -51,7 +51,9 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
     console.log(results)
   });
   
- 
+  $( document ).ajaxError(function() {
+    $('#lyricsDisplay').text( "Some of them jams be lost :(" );
+  });
 
 
   $(document).on("click", "#search", function(){
@@ -87,9 +89,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
           $('#lyricsDisplay').append(trackName, trackLyrics);
       });
 
-      $( document ).ajaxError(function() {
-        $('#lyricsDisplay').text( "Some of them jams be lost :(" );
-      });
+      
       
         }
       },
