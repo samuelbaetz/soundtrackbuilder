@@ -66,12 +66,24 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
       for (var i = 0; i < 5; i++) {
         var results = data.tracks.items[i].name;
         var artist = data.tracks.items[i].artists[0].name;
-        var p = $('<button>').text(results + " " + artist).attr('id', 'trackbutton'[i]);
+        var p = $('<button>').text(results + " " + artist).addClass("trackButton");
         var content = $("#soundtrack");
         content.prepend(p);
+        function button(){
+            var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+          
+            }).then(function(response) {
+                var trackName = $('<p>').text("Track: " + response.result.track.name);
+                var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
+                $('#lyricsDisplay').append(trackName, trackLyrics);
+            });
+        }
         
       }
-          $('#k').on("click", function(){
+          $('.trackButton').on("click", function(){
             // console.log(this.text());
             // var trackFull=this.text();
             // var trackSplit=trackFull.split("-");
@@ -82,42 +94,8 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
             // console.log(trackTitle);
             // console.log(trackArtist);
             // $('#lyricsDisplay').empty();
+            button()
             
-            var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-          
-            }).then(function(response) {
-                var trackName = $('<p>').text("Track: " + response.result.track.name);
-                var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
-                $('#lyricsDisplay').append(trackName, trackLyrics);
-            });
-            
-          })
-
-          $('#c').on("click", function(){
-            // console.log(this.text());
-            // var trackFull=this.text();
-            // var trackSplit=trackFull.split("-");
-            // var trackTitle=trackSplit[0];
-            // var trackArtist=trackSplit[1];
-            // console.log(trackFull);
-            // console.log(trackSplit);
-            // console.log(trackTitle);
-            // console.log(trackArtist);
-            // $('#lyricsDisplay').empty();
-            
-            var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-          
-            }).then(function(response) {
-                var trackName = $('<p>').text("Track: " + response.result.track.name);
-                var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
-                $('#lyricsDisplay').append(trackName, trackLyrics);
-            });
             
           })
 
