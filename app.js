@@ -71,7 +71,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
         content.prepend(p);
         
       }
-          $('.trackButton').on("click", function(){
+      $(document).on("click", ".trackbutton", function(){
             // console.log(this.text());
             // var trackFull=this.text();
             // var trackSplit=trackFull.split("-");
@@ -82,8 +82,8 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
             // console.log(trackTitle);
             // console.log(trackArtist);
             // $('#lyricsDisplay').empty();
-            for (var i = 0; i < 5; i++) {
-            var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist[i] + "/" + results[i] + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
+            
+            var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -93,7 +93,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
                 var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
                 $('#lyricsDisplay').append(trackName, trackLyrics);
             });
-            }
+            
           })
 
       },
