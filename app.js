@@ -62,43 +62,32 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
       
     function (data) {
         
-      console.log(data)
-      for (var i = 0; i < 5; i++) {
-        var results = data.tracks.items[i].name;
-        var artist = data.tracks.items[i].artists[0].name;
-        var p = $('<button>').val(results + " " + artist).addClass("trackButton");
-        var content = $("#soundtrack");
-        content.prepend(p);
-        function button(){
-            var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
-            $.ajax({
-                url: queryURL,
-                method: "GET"
+        console.log(data)
+        for (var i = 0; i < 5; i++) {
+            
+      var results = data.tracks.items[i].name;
+      var artist = data.tracks.items[i].artists[0].name;
+      console.log(artist)
+      console.log(results)
+      var p = $("<p>").text(results + " " + artist)
+      var content = $("#soundtrack");
+      content.prepend(p)
+      var queryURL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + results + "?apikey=SBJNOlBRhfayoBjkQVpzhTc79xTG4qAyVlnG9WsYOFtxkpoFELDxJsSejr16yC0o "
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+    
+      }).then(function(response) {
+          console.log('response:', response)
+          console.log('artistName:', response.result.artist.name)
+          var trackName = $('<p>').text("Track: " + response.result.track.name);
+          console.log('trackName:', response.result.track.name)
+          var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
           
-            }).then(function(response) {
-                var trackName = $('<p>').text("Track: " + response.result.track.name);
-                var trackLyrics = $('<p>').text("Lyrics: " + response.result.track.text);
-                $('#lyricsDisplay').append(trackName, trackLyrics);
-            });
+          $('#lyricsDisplay').append(trackName, trackLyrics);
+      });
+      
         }
-        
-      }
-          $('.trackButton').on("click", function(){
-            // console.log(this.text());
-            // var trackFull=this.text();
-            // var trackSplit=trackFull.split("-");
-            // var trackTitle=trackSplit[0];
-            // var trackArtist=trackSplit[1];
-            // console.log(trackFull);
-            // console.log(trackSplit);
-            // console.log(trackTitle);
-            // console.log(trackArtist);
-            // $('#lyricsDisplay').empty();
-            button()
-            
-            
-          })
-
       },
       function (err) {
         console.error(err);
