@@ -52,7 +52,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
   });
   
   $( document ).ajaxError(function() {
-    $('#lyricsDisplay').text( "Some of them jams be lost :(" );
+    alert( "Some of them jams be lost :(" );
   });
 
 
