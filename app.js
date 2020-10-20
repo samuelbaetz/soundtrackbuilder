@@ -54,7 +54,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
   $( document ).ajaxError(function() {
     Swal.fire({
     text: 'OH NO! Some tracks cannot be found :(',
-    target: '#dummy-target',
+    target: '#target',
     customClass: {
       container: 'position-absolute'
     },
