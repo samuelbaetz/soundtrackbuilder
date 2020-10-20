@@ -79,8 +79,10 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
             
       var results = data.tracks.items[i].name;
       var artist = data.tracks.items[i].artists[0].name;
+      var link = data.tracks.items[i].external_urls.spotify
       console.log(artist)
       console.log(results)
+      console.log(link)
       var p = $("<p>").text(results + " " + artist)
       var content = $("#soundtrack");
       content.prepend(p)
