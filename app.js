@@ -52,7 +52,17 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
   });
   
   $( document ).ajaxError(function() {
-    alert( "Some of them jams be lost :(" );
+    Swal.fire({
+    text: 'OH NO! Some tracks cannot be found :(',
+    target: '#dummy-target',
+    customClass: {
+      container: 'position-absolute'
+    },
+    toast: true,
+    position: 'bottom-right'
+  })
+  
+  
   });
 
 
