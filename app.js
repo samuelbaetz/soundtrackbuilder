@@ -111,7 +111,7 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err,data) {
     clearLyrics();
 
   });
-
+ 
   $(document).on("click", "#saveas", function(){
   var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
   FileSaver.saveAs(blob, "hello world.txt");
